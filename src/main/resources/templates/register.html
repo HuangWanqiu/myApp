@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+<form action="/register_add" method='post'>
+    user_name: <input type="text" name='user_name'/><br/>
+    user_password:<input type="password" name='user_password'/><br/>
+    email:<input type="text" name="email"/><br/>
+    phone_number:<input type="text" name="phone_number"/><br/>
+    motto:<input type="text" name="motto"/><br/>
+
+    <input type="submit" value="submit1"/>
+</form>
+
+<form action="/upload" method='post'  enctype="multipart/form-data">
+    head_portrait_path:<input type="file" name="file" accept="image/png"/>
+    <input type="submit" value="submit2"/>
+</form>
+
+
+<img src="/upload/images/test.png">
+
+</body>
+</html>

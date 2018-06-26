@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    <script src="/js/jquery-3.3.1.js"></script>
+    <script>
+       function test() {
+           $.ajax({
+               type: "GET",
+               url: "/register",
+               success: function () {
+                   console.log("register success");
+               },
+               error: function () {
+                   console.log("register error");
+
+               }
+           })
+       }
+
+    </script>
+</head>
+<body>
+
+欢迎 来到“陪伴”
+<br/>
+    <form action="/register">
+        <input type="submit"  value="register"></input>
+    </form>
+    <form action="/login">
+        <input type="submit"  value="login"></input>
+    </form>
+
+
+
+
+
+</body>
+</html>
