@@ -1,13 +1,12 @@
-package shu.ces.accompany.control;
+package shu.ces.company.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import shu.ces.accompany.model.User;
-import shu.ces.accompany.service.MainPageService;
-import shu.ces.accompany.service.MessageService;
+import shu.ces.company.model.User;
+import shu.ces.company.service.MainPageService;
 
 import javax.servlet.http.HttpSession;
 

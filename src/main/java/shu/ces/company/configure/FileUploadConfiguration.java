@@ -1,4 +1,4 @@
-package shu.ces.accompany.configure;
+package shu.ces.company.configure;
 
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;

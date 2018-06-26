@@ -1,7 +1,5 @@
-package shu.ces.accompany.model;
+package shu.ces.company.model;
 
-
-import org.springframework.web.multipart.MultipartFile;
 
 public class User {
     private int user_id;

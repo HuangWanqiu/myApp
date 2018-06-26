@@ -1,15 +1,13 @@
-package shu.ces.accompany.control;
+package shu.ces.company.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import shu.ces.accompany.model.User;
-import shu.ces.accompany.service.RegisterService;
+import shu.ces.company.model.User;
+import shu.ces.company.service.RegisterService;
 import java.io.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class Register {

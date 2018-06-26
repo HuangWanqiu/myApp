@@ -1,12 +1,12 @@
-package shu.ces.accompany.control;
+package shu.ces.company.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import shu.ces.accompany.model.Robot;
-import shu.ces.accompany.service.RobotService;
+import shu.ces.company.model.Robot;
+import shu.ces.company.service.RobotService;
 
 import javax.servlet.http.HttpSession;
 

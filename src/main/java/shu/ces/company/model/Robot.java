@@ -1,4 +1,4 @@
-package shu.ces.accompany.model;
+package shu.ces.company.model;
 
 public class Robot {
 

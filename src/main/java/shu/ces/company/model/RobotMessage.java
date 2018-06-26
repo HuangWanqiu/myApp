@@ -1,12 +1,9 @@
-package shu.ces.accompany.model;
+package shu.ces.company.model;
 
 import java.sql.Timestamp;
 
-public class UserMessage {
+public class RobotMessage {
     private int user_id;
-    private Timestamp send_time;
-    private String content;
-    private String audio_path;
 
     public int getUser_id() {
         return user_id;
@@ -14,6 +11,14 @@ public class UserMessage {
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public int getRobot_id() {
+        return robot_id;
+    }
+
+    public void setRobot_id(int robot_id) {
+        this.robot_id = robot_id;
     }
 
     public Timestamp getSend_time() {
@@ -39,4 +44,10 @@ public class UserMessage {
     public void setAudio_path(String audio_path) {
         this.audio_path = audio_path;
     }
+
+    private int robot_id;
+    private Timestamp send_time;
+    private String content;
+    private String audio_path;
+
 }

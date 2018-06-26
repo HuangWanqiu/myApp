@@ -1,10 +1,10 @@
-package shu.ces.accompany.service;
+package shu.ces.company.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-import shu.ces.accompany.model.Robot;
+import shu.ces.company.model.Robot;
 
 @Service
 public class RobotService {
