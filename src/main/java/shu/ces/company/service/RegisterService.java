@@ -19,6 +19,6 @@ public class RegisterService {
         System.out.println(user.getMotto());
         System.out.println(user.getHead_portrait_path());
         return jdbcTemplate.update("insert into user(user_name,user_password,email,phone_number,head_portrait_path) values(?,?,?,?,?)",
-                user.getUser_name(),user.getUser_password(),user.getPhone_number(),user.getMotto(),user.getHead_portrait_path());
+                user.getUser_name(),user.getUser_password(),user.getEmail(),user.getPhone_number(),user.getHead_portrait_path());
     }
 }

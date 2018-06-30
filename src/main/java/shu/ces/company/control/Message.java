@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import shu.ces.company.model.Robot;
 import shu.ces.company.model.RobotMessage;
 import shu.ces.company.model.User;
 import shu.ces.company.model.UserMessage;
@@ -39,8 +40,6 @@ public class Message {
 
         Timestamp timestamp=new Timestamp(System.currentTimeMillis());
 
-
-
         // save user message
         User u=(User) httpSession.getAttribute("currentUser");
         UserMessage userMessage=new UserMessage();
@@ -50,12 +49,12 @@ public class Message {
         userMessage.setAudio_path("null");
         messageService.addUserMessage(userMessage);
 
-
         // save robot message
 
+        Robot r=(Robot) httpSession.getAttribute("currentRobot");
         RobotMessage robotMessage=new RobotMessage();
         robotMessage.setUser_id(u.getUser_id());
-        robotMessage.setRobot_id(1);
+        robotMessage.setRobot_id(r.getRobot_id());
         robotMessage.setSend_time(timestamp);
         robotMessage.setAudio_path("null");
         robotMessage.setContent(receivedMessage);
@@ -75,11 +74,15 @@ public class Message {
 
     }
 
+    @GetMapping(value="/query_robot_history")
+    @ResponseBody
 
+    public List<RobotMessage> getRobotHistory(HttpSession httpSession){
 
+        Robot r=(Robot) httpSession.getAttribute("currentRobot");
+        User u=(User) httpSession.getAttribute("currentUser");
+        return messageService.queryRobotHistory(u,r);
 
-
-
-
-
+    }
+    
 }

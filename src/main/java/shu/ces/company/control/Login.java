@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import shu.ces.company.model.User;
 import shu.ces.company.service.LoginService;
 
@@ -23,11 +25,12 @@ public class Login {
     }
 
     @PostMapping(value="/login_verification")
-    public String login_verification(User user, HttpSession httpSession){
+    @ResponseBody
 
-        System.out.println(user.getEmail());
+    public String loginVerification( User user, HttpSession httpSession){
 
-        System.out.println(user.getUser_password());
+        System.out.println("用户邮箱："+user.getEmail());
+        System.out.println("用户密码："+user.getUser_password());
         String input_password=user.getUser_password();
 
         user=loginService.queryPassword(user);
@@ -36,14 +39,11 @@ public class Login {
         httpSession.setAttribute("currentUser",user);
 
         if(!user.getUser_password().equals(input_password))
-            System.out.println("password is wrong");
+            return "password is wrong";
 
         User u=(User) httpSession.getAttribute("currentUser");
         System.out.println(u.getUser_name());
-
-
-
-        return "redirect:message";
+        return "OK";
     }
 
 }

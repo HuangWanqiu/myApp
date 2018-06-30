@@ -20,6 +20,7 @@ public class LoginService {
     public User queryPassword(User user){
 
         Object [] params=new Object[]{user.getEmail()};
+        System.out.println("servic:"+user.getEmail());
         List<User> list=jdbcTemplate.query("select * from user where email=?",params,new UserMapper());
         user=list.get(0);
         System.out.println(list.size());

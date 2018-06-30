@@ -1,28 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>注册</title>
+  <!-- ionic 引用 -->
+  <link rel="stylesheet" type="text/css" href="/ionic/css/ionic.css">
+  <link rel="stylesheet" type="text/css" href="/css/myApp.css">
+  <!-- <script type="text/javascript" src="/ionic/js/ionic.bundle.min.js"></script> -->
+  <script type="text/javascript" src="/js/jQuery.js"></script>
+  <!-- 项目 引用 -->
+  <script type="text/javascript" src="/js/rem.js"></script>
+  <style type="text/css">
+  .note {
+    background: linear-gradient(165deg, transparent 0.8rem, #FFF 0);
+  }
+  .location{
+    height: 6.8rem;
+  }
+  .head_img{
+    width: 150px;
+    height: 150px;
+    margin: 0.2rem auto;
+  }
+</style>
 </head>
-<body>
-
-<form action="/register_add" method='post'>
-    user_name: <input type="text" name='user_name'/><br/>
-    user_password:<input type="password" name='user_password'/><br/>
-    email:<input type="text" name="email"/><br/>
-    phone_number:<input type="text" name="phone_number"/><br/>
-    motto:<input type="text" name="motto"/><br/>
-
-    <input type="submit" value="submit1"/>
+<body ng-controller="registerCtrl">
+  <!-- 背景模块 -->
+  <div class="main">
+    <!-- 折角 -->
+    <div class="note"></div>
+    <!-- 表单 -->
+    <div class="content location">
+    	<!-- 注册表单 开始 -->
+      <form action="/register_add" method='post'>
+      <div class="list">
+        <img class="head_img round_icon" src="/images/background.jpg">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">UserName</span>
+          <input type="text" placeholder="John" id="userName">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">PhoneNumber</span>
+          <input type="text" placeholder="Suhr" id="phoneNumber">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="john@suhr.com" id="email">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">PassWord</span>
+          <input type="text" placeholder="john@suhr.com" id="passWord">
+        </label>
+          <div class="padding">
+            <input value="Register" class="button button-block button-positive Red" id="register"/>
+            <!-- <button class="button button-block button-positive Red" id="login" ng-click="login()">Register</button> -->
+          </div>
+        </div>
+        <!-- 注册表单结束 -->
+        
+      </div>
+      <!-- 跳转注册页面 -->   
+        <a class="button icon icon-right ion-chevron-right register " href="/">登陆</a>
 </form>
+    </div>
+    <script type="text/javascript">
+        $("#register").click(function(){
 
-<form action="/upload" method='post'  enctype="multipart/form-data">
-    head_portrait_path:<input type="file" name="file" accept="image/png"/>
-    <input type="submit" value="submit2"/>
-</form>
+            var userName = $("#userName").val();
+            var phoneNumber =$("#phoneNumber").val();
+            var email = $("#email").val();
+            var pwd = $("#passWord").val();
 
+            // console.log(email+"|"+pwd);
+            $.ajax({
+                type: "post",
+                url: "/register_add",
+                data: "user_name="+userName+"&phone_number="+phoneNumber+"&email="+email+"&user_password="+pwd,
 
-<img src="/upload/images/test.png">
-
-</body>
-</html>
+                success: function (data) {
+                    //console.log(data);
+                    if(data == "OK")
+                        window.location.href = "/";
+                },
+                error: function () {
+                    alert("注册失败");
+                }
+            })
+        });
+    </script>
+  </body>
+  </html>

@@ -61,8 +61,8 @@ public class Register {
         System.out.println(user.getHead_portrait_path());
 
         user.setHead_portrait_path("tmp");
-        //int result=registerService.add(user);
-        //System.out.println(result);
+        int result=registerService.add(user);
+        System.out.println(result);
         return "OK";
     }
 

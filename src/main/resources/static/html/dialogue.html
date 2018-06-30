@@ -1,0 +1,48 @@
+<ion-view view-title="对话" cache-view="false" >
+	<!--如果用户未创建虚拟机器人显示如下模块-->
+	<!--<canvas id="font_rain" ng-if="!flag">-->
+
+	<!--</canvas>-->
+	<div id="particles-js" ng-if="!flag"></div>
+	<P style="color:#3f3f3f;font-size: 2rem;top: 14rem;line-height: 2rem;" class="textP" ng-if="!flag">欢迎<br>来到“陪伴”<br>点击“虚拟人物”创建<br>您的第一个<br>陪伴者</P>
+	<!--如果用户已创建虚拟机器人显示如下模块-->
+	<!-- 人物形象模块 -->
+	<div id="contentDIV" class="person" ng-if="flag">
+		<!-- <div class="bubble" style="background-color: rgba(221,221,221,0.85)">
+			<i id="AIname" style="color: #000;display: inline-block;">小新</i>
+			<div class="talk">快来跟我聊天吧快来跟我聊天吧</div>
+		</div> -->
+		<div class="sph">
+
+			<div class="spbq">
+				<div class="biankuang biankuang_1"></div>
+				<div class="biankuang biankuang_2"></div>
+				<div class="biankuang biankuang_3"></div>
+				<div class="biankuang biankuang_4"></div>
+				<div class ="textDiv">
+					<a href="#" >
+						<i class="text" id="personAnswer">快来跟我聊天吧</i>
+					</a>
+				</div>
+				<div class="text_gobuy">
+					<br/>
+					<p>与“{{robot.robotName}}”的对话</p>
+					<br/>
+				</div>
+			</div>
+		</div>
+		<div class="list dialogue">
+
+			<div class="item item-input-inset">
+				<label class="item-input-wrapper">
+					<input type="text" placeholder="Dialogue" ng-model="person.question">
+				</label>
+				<button class="button button-small" ng-click="submitQuestion()">
+					Submit
+				</button>
+			</div>
+
+		</div>
+	</div>
+
+</ion-view>

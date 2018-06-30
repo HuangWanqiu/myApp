@@ -1,0 +1,24 @@
+* {
+  height: 100%;
+}
+
+html {
+  font-size: 100px;
+}
+
+.main {
+  background: url('../images/background.jpg');
+  background-position: top;
+  height: 100%;
+}
+
+.note {
+
+  /*height: 200px;*/
+  position: relative;
+  background: linear-gradient(165deg, transparent 3.1rem, #FFF 0);        /*border-radius: .5em;*/
+  background-repeat: no-repeat;
+  padding: 1rem 1.2rem;
+  max-width: 12rem;
+  font: 5rem Baskerville, Palatino, serif;
+}

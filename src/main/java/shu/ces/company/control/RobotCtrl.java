@@ -25,7 +25,7 @@ public class RobotCtrl {
 
     @PostMapping(value="/add_robot")
     @ResponseBody
-    public String addRobot(Robot robot, HttpSession httpSession){
+    public String addRobot( Robot robot, HttpSession httpSession){
 
         robotService.addRobot(robot);
         int robot_id=robotService.queryCount();
@@ -46,5 +46,11 @@ public class RobotCtrl {
         robotService.updateRobot(robot);
         return "OK";
     }
-
+    @GetMapping(value="/query_robot")
+    @ResponseBody
+    public Robot queryRobot(HttpSession httpSession){
+        Robot r=(Robot) httpSession.getAttribute("currentRobot");
+        System.out.println("查询robot："+r);
+        return r;
+    }
 }

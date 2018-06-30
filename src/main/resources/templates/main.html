@@ -1,0 +1,229 @@
+<html ng-app="ionicApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <title>app</title>
+  <!--项目css-->
+  <link rel="stylesheet" type="text/css" href="/css/myApp.css">
+  <!-- 聊天界面css之一导入 -->
+  <!-- <link rel="stylesheet" type="text/css" href="/slider-chat-panel/css/default.css"> -->
+  <!-- 2D捏脸 js&css start -->
+  <!--script_file-->
+  <script src="/js/cute_gravatar_master/d3.v3.min.js"></script>
+  <script src="/js/cute_gravatar_master/zepto.min.js"></script>
+  <!--绘制bubble-->
+  <script src="/js/cute_gravatar_master/dataparse.js"></script>
+  <script src="/js/cute_gravatar_master/personchange.js"></script>
+  <!--数据导入-->
+  <script src="/js/cute_gravatar_master/bodyData.js"></script>
+  <script src="/js/cute_gravatar_master/faceData.js"></script>
+  <script src="/js/cute_gravatar_master/mouthData.js"></script>
+  <script src="/js/cute_gravatar_master/hairData.js"></script>
+  <script src="/js/cute_gravatar_master/eyeData.js"></script>
+  <script src="/js/cute_gravatar_master/eyebrowData.js"></script>
+  <script src="/js/cute_gravatar_master/noseData.js"></script>
+  <script src="/js/cute_gravatar_master/glassData.js"></script>
+  <script src="/js/cute_gravatar_master/hatData.js"></script>
+  <script src="/js/cute_gravatar_master/bubbleData.js"></script>
+  <script src="/js/cute_gravatar_master/clothData.js"></script>
+  <script src="/js/cute_gravatar_master/backgroundData.js"></script>
+  <script src="/js/cute_gravatar_master/hobbyData.js"></script>
+  <script src="/js/cute_gravatar_master/featureData.js"></script>
+  <script src="/js/cute_gravatar_master/expressData.js"></script>
+  <!--css_file-->
+  <link href="/js/cute_gravatar_master/reset.css" type="text/css" rel="stylesheet" />
+  <link href="/js/cute_gravatar_master/edit.css" type="text/css" rel="stylesheet" />
+  <!-- main页面引用是没用的 dom还未加载 -->
+  <script id="neilian" type="text/javascript" src=""></script>
+  <!-- 2D捏脸 js&css end -->
+  <link rel="stylesheet" type="text/css" href="/ionic/css/ionic.css">
+  <link rel="stylesheet" type="text/css" href="/css/shake_head.css">
+  <script type="text/javascript" src="/ionic/js/ionic.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/jQuery.js"></script>
+  <!-- hover效果css引入 -->
+  <link rel="stylesheet" type="text/css" href="/css/hover.css">
+
+
+  <!--对话页面 无虚拟人物特效-->
+  <link rel="stylesheet" media="screen" href="/particles/css/style.css">
+
+  <!-- <script type="text/javascript" src="../js/rem.js"></script> -->
+  <!-- 聊天界面css导入start -->
+  <!-- <link rel="stylesheet" type="text/css" href="../slider-chat-panel/css/normalize.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../slider-chat-panel/css/default.css"> -->
+  <!-- <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../slider-chat-panel/css/styles.css"> -->
+  <!-- 聊天界面css导入end -->
+  <!-- 提示框动画start -->
+  <!-- <link rel="stylesheet" type="text/css" href="../css/tooltipAnimations/demo.css" />
+  <link rel="stylesheet" type="text/css" href="../css/tooltipAnimations/component.css" />
+  <script>document.documentElement.className = 'js';</script> -->
+  <style type="text/css">
+
+  /*摇头晃脑css start*/
+  .background-circle {
+    width: 20rem;
+    height: 20rem;
+  }
+  .wrapper {
+    margin-top: 6rem;
+  }
+  .shirt-text {
+    top: -340px;
+    font-size: 25px;
+    font-family: '微软雅黑';
+    font-weight: 100;
+    -webkit-text-stroke: 0rem;
+  }
+  /*摇头晃脑css end*/
+</style>
+<style>
+/*组装动漫人物css start*/
+.pathS{
+  fill-rule:evenodd;
+  clip-rule:evenodd;
+}
+#eyeChange{
+  position:absolute;
+  top:20px;
+  left:20px;
+}
+#mouthChange{
+  position:absolute;
+  top:100px;
+  left:20px;
+}
+/*组装动漫人物 end*/
+/*hwq加的css*/
+#controlDiv {
+  margin-left: 0px; 
+  float: none; 
+}
+#contentDIV {
+  position: static; 
+  margin-top: 44px;
+  margin: 0;
+}
+#controlDiv {
+  width: 100%;
+}
+.category {
+  width: 25%;
+  font-size: 1.1rem;
+  height: 1.8rem;
+  line-height: normal;
+}
+.picker{
+  width: 25%;
+  margin：0rem;
+  /*margin: 0 -1px -1px -1px;*/
+  /*height: 200px;  */
+  /*height: 4rem;*/
+}
+#controlDiv{
+  overflow: hidden;
+}
+#pickerDiv{
+  overflow: scroll;
+  height: 100%;
+}
+/*hwq加的css结束*/
+/*创建人物页面*/
+.saveHead{
+
+}
+/*对话页面*/
+.bubble .talk {
+  padding: 1rem;
+  color: #333;
+}
+.bubble{
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  margin-left: -8rem;
+  width: 16rem;
+
+  color: #ddd;
+  border-radius:10px;
+  -moz-border-radius:10px;
+　　　　-webkit-border-radius:10px;
+　　　　border-radius:10px;
+}
+
+.textP{
+  position:absolute;
+  width: 100%;
+  height: 10rem;
+  text-align:center;
+  top: 18rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-family: "宋体", Times, serif;
+}
+  /*导航颜色*/
+.bar_heilan {
+  border-color: #10174D;
+  background-color: #10174D;
+  background-image: linear-gradient(0deg, #10174D, #10174D 50%, transparent 50%);
+  color: #fff;
+}
+.bar_lan{
+  border-color: #283593;
+  background-color: #283593;
+  background-image: linear-gradient(0deg, #283593, #283593 50%, transparent 50%);
+  color: #fff;
+}
+.bar_fen{
+  border-color: #fe74a7;
+  background-color: #fe74a7;
+  background-image: linear-gradient(0deg, #fe74a7, #fe74a7 50%, transparent 50%);
+  color: #fff;
+}
+.tabs_heilan {
+  border-color: #10174D;
+  background-color: #10174D;
+  background-image: linear-gradient(0deg, #10174D, #10174D 50%, transparent 50%);
+  color: #fff;
+}
+.tab_lan{
+  border-color: #283593;
+  background-color: #283593;
+  background-image: linear-gradient(0deg, #283593, #283593 50%, transparent 50%);
+  color: #fff;
+}
+</style>
+</head>
+<body>
+ <ion-nav-bar class="bar_fen">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <button class="button">Edit</button>
+</ion-nav-bar>
+
+<ion-nav-view></ion-nav-view>
+ <!--对话页面 无虚拟人物特效-->
+
+<script type="text/javascript">
+    var personInit={
+        "sexual":{"id":0},
+        "hair":{"id":20008,"color":"#000","x":0,"y":0},
+        "face":{"id":20000,"color":"#F4CDA7","x":0,"y":0},
+        "mouth":{"id":7,"x":0,"y":0},
+        "eye":{"id":20010,"x":0,"y":0},
+        "eyebrow":{"id":1,"x":0,"y":0},
+        "hat":{"id":0,"x":0,"y":0},
+        "background":{"id":6,"x":0,"y":0},
+        "hobby":{"id":34,"x":0,"y":0},
+        "cloth":{"id":11,"x":0,"y":0},
+        "bubble":{"id":0,"x":0,"y":0},
+        "feature":{"id":0,"x":0,"y":0},
+        "glass":{"id":0,"x":0,"y":0},
+        "express":{"id":0,"x":0,"y":0},
+        "nose":{"id":0,"x":0,"y":0}
+    };
+</script>
+</body>
+</html>
