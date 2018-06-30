@@ -4,6 +4,9 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
   <title>app</title>
+  <!--欢迎页字体-->
+  <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+
   <!--项目css-->
   <link rel="stylesheet" type="text/css" href="/css/myApp.css">
   <!-- 聊天界面css之一导入 -->
@@ -98,11 +101,11 @@
 /*组装动漫人物 end*/
 /*hwq加的css*/
 #controlDiv {
-  margin-left: 0px; 
-  float: none; 
+  margin-left: 0px;
+  float: none;
 }
 #contentDIV {
-  position: static; 
+  position: static;
   margin-top: 44px;
   margin: 0;
 }
@@ -194,6 +197,22 @@
   background-image: linear-gradient(0deg, #283593, #283593 50%, transparent 50%);
   color: #fff;
 }
+  /*上传*/
+.fileinput-button {
+  position: relative;
+  display: inline-block;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.fileinput-button input{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+}
 </style>
 </head>
 <body>
@@ -225,5 +244,6 @@
         "nose":{"id":0,"x":0,"y":0}
     };
 </script>
+
 </body>
 </html>

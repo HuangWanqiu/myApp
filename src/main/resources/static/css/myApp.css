@@ -162,7 +162,7 @@ p {
 }
 
 .effect-3 p {
-  padding-top:0.5rem;
+  padding-top:0.2rem;
   padding-bottom: 1rem;
   font-size: 1rem;
   line-height: 0.3rem;
@@ -170,7 +170,7 @@ p {
 }
 
 .effect-3 .member-image {
-  border-bottom: 0.15rem solid #946AFE;
+  /*border-bottom: 0.15rem solid #946AFE;*/
   transition: 0.4s;
   height: 45%;
   width: 100%;
@@ -241,3 +241,44 @@ p {
 
 /*= Media Query End
 =================== */
+
+/*main页面引用*/
+
+/*摇头晃脑css start*/
+.background-circle {
+  width: 20rem;
+  height: 20rem;
+}
+.wrapper {
+  margin-top: 6rem;
+}
+.shirt-text {
+  top: -340px;
+  font-size: 25px;
+  font-family: '微软雅黑';
+  font-weight: 100;
+  -webkit-text-stroke: 0rem;
+}
+/*摇头晃脑css end*/
+
+    /*组装动漫人物css start*/
+  .pathS{
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+  }
+#eyeChange{
+  position:absolute;
+  top:20px;
+  left:20px;
+}
+#mouthChange{
+  position:absolute;
+  top:100px;
+  left:20px;
+}
+/*组装动漫人物 end*/
+.peiban3{
+  color: #878aa7;
+  font-size: 1rem;
+  font-family: "微软雅黑", Times, serif;
+}

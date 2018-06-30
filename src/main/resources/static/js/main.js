@@ -65,6 +65,9 @@ angular.module('ionicApp', ['ionic'])
 
 })
     .controller('mineCtrl', function($scope,$state) {
+        $scope.Logout = function(){
+            window.location.href = "/";
+        }
         $(".single-member").click(function(){
             if(!$(".member-image").hasClass("member-info_focus")){
                 $(".member-image").addClass("member-info_focus");
@@ -99,6 +102,13 @@ angular.module('ionicApp', ['ionic'])
 
     })
 .controller('collectTabCtrl', function($scope,$state) {
+    function fclick(obj){
+        obj.style.posTop=event.srcElement.offsetTop
+        var x=event.x-obj.offsetWidth/2
+        if(x<event.srcElement.offsetLeft)x=event.srcElement.offsetLeft
+        if(x>event.srcElement.offsetLeft+event.srcElement.offsetWidth-obj.offsetWidth)x=event.srcElement.offsetLeft+event.srcElement.offsetWidth-obj.offsetWidth
+        obj.style.posLeft=x
+    }
   // console.log("你好");
   $scope.createCharacter = function(){
     $state.go("tabs.navstack");
@@ -132,11 +142,11 @@ angular.module('ionicApp', ['ionic'])
         $scope.showPopup();
        }
     $scope.saveRobot = function(name){
-        console.log("改变后的人物:"+angular.toJson(changePerson));
+        // console.log("改变后的人物:"+angular.toJson(changePerson));
 
         $scope.robot.setting = angular.toJson(changePerson);
         $scope.robot.name = name;
-        console.log($scope.robot.setting);
+        // console.log($scope.robot.setting);
         // appService.addCharacter($scope.robot.name,$scope.robot.setting).then(function (data) {
         //     console.log(data);
         // });
@@ -239,14 +249,17 @@ angular.module('ionicApp', ['ionic'])
             update = function() {
                 stats.begin();
                 stats.end();
-                if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-                    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-                }
+                // if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                //     // count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+                // }
                 requestAnimationFrame(update);
             };
             requestAnimationFrame(update);
         });
+        $youziku.load("body", "ba74badaa6dd497fa72f409e5fb3e874", "hdjxyt");
+        $youziku.load("#peiban1,#peiban2", "ba74badaa6dd497fa72f409e5fb3e874", "hdjxyt");
 
+        $youziku.draw();
     }
     $scope.person = {question:""};
    var message =  $scope.person.question;
@@ -317,7 +330,7 @@ this.queryVirtualCharacter = function () {
     method: 'get',
     cache: false
   }).then(function (results) {
-    console.log(results);
+    // console.log(results);
     deferred.resolve(results.data);
   }).catch(function (e) {
   });

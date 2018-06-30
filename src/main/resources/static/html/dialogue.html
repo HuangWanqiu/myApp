@@ -4,7 +4,12 @@
 
 	<!--</canvas>-->
 	<div id="particles-js" ng-if="!flag"></div>
-	<P style="color:#3f3f3f;font-size: 2rem;top: 14rem;line-height: 2rem;" class="textP" ng-if="!flag">欢迎<br>来到“陪伴”<br>点击“虚拟人物”创建<br>您的第一个<br>陪伴者</P>
+	<div id="peiban1" style="color:#3f3f3f;font-size: 3.2rem;top: 14rem;line-height: 4rem;" class="textP" ng-if="!flag">
+		欢迎来到&emsp;<br>&emsp;&emsp;
+		“<i id="peiban2" style="color: #fcc02e;">陪伴</i>”
+		<p class="peiban3">点击“虚拟人物”创建您的第一个陪伴者</p>
+	</div>
+
 	<!--如果用户已创建虚拟机器人显示如下模块-->
 	<!-- 人物形象模块 -->
 	<div id="contentDIV" class="person" ng-if="flag">

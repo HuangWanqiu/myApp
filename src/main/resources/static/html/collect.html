@@ -44,7 +44,16 @@
 			<span class="music-note" id="one">&#9835;</span>
 			<span class="music-note" id="two">&#9834;</span>
 		</div>
-		<a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">语音</a>
-		<a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">音色</a>
+		<!--<a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">语音</a>-->
+		<!--<a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">音色</a>-->
+		<input id="f_file" type='text' style="text-align: center;">
+		<span class="fileinput-button">
+            <span class="button button-dark" style="margin: 2rem;">上传语音</span>
+			<input type="file" id="y_file" onchange="f_file.value=this.value" hidefocus>
+        </span>
+		<span class="fileinput-button">
+            <span  class="button button-dark" style="margin: 2rem;">上传文字</span>
+			<input type="file" id="t_file" onchange="f_file.value=this.value" hidefocus>
+        </span>
 	</ion-content>
 </ion-view>
