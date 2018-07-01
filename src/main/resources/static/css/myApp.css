@@ -12,7 +12,7 @@
   }
 
   .main {
-    background: url('../images/background.jpg');
+    background: url('../images/background2.jpg');
     background-position: top;
     height: 100%;
     position: relative;
@@ -25,12 +25,13 @@
     background: linear-gradient(165deg, transparent 2rem, #FFF 0);        /*border-radius: .5em;*/
     width: 100%;
     height: 100%;
+    /*z-index: 3;*/
   }
 
   .location {
     margin: auto;
     position: absolute;
-    top: 1.5rem;
+    top: 1.3rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -187,6 +188,7 @@ p {
 .effect-3 .member-image img {
   width: 100%;
   vertical-align: bottom;
+  margin-top: 1rem;
 }
 
 .effect-3 .social-touch {

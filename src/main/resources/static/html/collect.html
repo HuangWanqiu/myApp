@@ -1,5 +1,5 @@
 <ion-view view-title="虚拟人物" cache-view="false">
-	<ion-content class="padding">
+	<ion-content class="padding" overflow-scroll="true" style="overflow: hidden">
 		<!-- <label class="item item-input">
           <input type="text" placeholder="Name">
         </label> -->
@@ -46,13 +46,13 @@
 		</div>
 		<!--<a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">语音</a>-->
 		<!--<a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">音色</a>-->
-		<input id="f_file" type='text' style="text-align: center;">
+		<input id="f_file" type='text' style="text-align: center;width: 100%;">
 		<span class="fileinput-button">
-            <span class="button button-dark" style="margin: 2rem;">上传语音</span>
+            <span class="button button-dark" style="margin: 0 1rem 3rem 0;">上传语音</span>
 			<input type="file" id="y_file" onchange="f_file.value=this.value" hidefocus>
         </span>
 		<span class="fileinput-button">
-            <span  class="button button-dark" style="margin: 2rem;">上传文字</span>
+            <span  class="button button-dark" style="margin: 0 0 3rem 1rem;">上传文字</span>
 			<input type="file" id="t_file" onchange="f_file.value=this.value" hidefocus>
         </span>
 	</ion-content>

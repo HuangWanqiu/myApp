@@ -17,7 +17,7 @@ class Robot():
         '''
             导入headers
         '''
-        with open("D:/gitfiles/accompany/src/main/java/shu/ces/company/python/headers.txt") as headers:
+        with open("D:/github/src/main/java/shu/ces/company/python/headers.txt") as headers:
             line = headers.readline().strip()
             while line:
                 key = line.split(":")[0]

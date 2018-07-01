@@ -18,9 +18,11 @@
     height: 6.8rem;
   }
   .head_img{
-    width: 150px;
-    height: 150px;
-    margin: 0.2rem auto;
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+    box-shadow: 0px 0px 8px 1px #aaa;
+    /*margin: 0.2rem auto;*/
   }
 </style>
 </head>
@@ -28,13 +30,14 @@
   <!-- 背景模块 -->
   <div class="main">
     <!-- 折角 -->
-    <div class="note"></div>
+    <!--<div class="note"></div>-->
     <!-- 表单 -->
     <div class="content location">
     	<!-- 注册表单 开始 -->
       <form action="/register_add" method='post'>
-      <div class="list">
-        <img class="head_img round_icon" src="/images/background.jpg">
+      <div class="list" style="text-align: center;">
+        <img class="head_img round_icon" src="/images/xiaobai.jpg">
+        <div style="text-align: left;margin-top: 0.1rem;">
         <label class="item item-input item-stacked-label">
           <span class="input-label">UserName</span>
           <input type="text" placeholder="John" id="userName">
@@ -51,6 +54,7 @@
           <span class="input-label">PassWord</span>
           <input type="password" placeholder="john@suhr.com" id="passWord">
         </label>
+        </div>
           <div class="padding">
             <input value="Register" class="button button-block button-positive Red" id="register"/>
             <!-- <button class="button button-block button-positive Red" id="login" ng-click="login()">Register</button> -->
@@ -60,7 +64,7 @@
         
       </div>
       <!-- 跳转注册页面 -->   
-        <a class="button icon icon-right ion-chevron-right register " href="/">登陆</a>
+        <a class="button icon icon-right ion-chevron-right register " href="/">Login</a>
 </form>
     </div>
     <script type="text/javascript">

@@ -46,7 +46,7 @@ public class Message {
         Process proc;
         String result="";
         try {
-            proc = Runtime.getRuntime().exec("C:\\ProgramData\\Anaconda3\\python.exe D:\\gitfiles\\accompany\\src\\main\\java\\shu\\ces\\company\\python\\robot.py  "+message);
+            proc = Runtime.getRuntime().exec("C:\\Anaconda3\\python.exe  D:\\github\\src\\main\\java\\shu\\ces\\company\\python\\robot.py  "+message);
             //用输入输出流来截取结果
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream(), "GBK"));
             String line = null;
@@ -71,7 +71,7 @@ public class Message {
 
     }
 
-    @PostMapping(value = "/word_to_audio")
+    @PostMapping(value = "/text_to_audio")
     @ResponseBody
     public String wordToAudio(@RequestParam("word") String word){
         String audioPath=getCurrentPath();
@@ -89,13 +89,13 @@ public class Message {
 
         // get currentUser and currentRobot from session
         String sendMessage="";
-        System.out.println(receivedMessage);
+        System.out.println("receivedMessage: "+receivedMessage);
         List<String> list=new ArrayList<>();
 
         if(receivedMessage.indexOf("藏头诗")>0){
             String keys[]={"上海大学","黄婉秋美","小可可爱","移动终端","不忘初心"};
             try {
-                FileInputStream inputStream = new FileInputStream("D:\\gitfiles\\accompany\\src\\main\\java\\shu\\ces\\company\\poem\\tibetan_poem.txt");
+                FileInputStream inputStream = new FileInputStream("D:\\github\\src\\main\\java\\shu\\ces\\company\\poem\\tibetan_poem.txt");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String str=null;
                 while ((str = bufferedReader.readLine()) != null) {
@@ -119,7 +119,7 @@ public class Message {
 
         }else if(receivedMessage.indexOf("诗")>0){
             try {
-                FileInputStream inputStream = new FileInputStream("D:\\gitfiles\\accompany\\src\\main\\java\\shu\\ces\\company\\poem\\poem.txt");
+                FileInputStream inputStream = new FileInputStream("D:\\github\\src\\main\\java\\shu\\ces\\company\\poem\\poem.txt");
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
                 String str = null;
@@ -144,7 +144,7 @@ public class Message {
         }else{
             sendMessage=getRobotAnswer(receivedMessage);
         }
-        System.out.println(sendMessage);
+        System.out.println("sendMessage: "+sendMessage);
 
         User u=(User) httpSession.getAttribute("currentUser");
         Timestamp timestamp=new Timestamp(System.currentTimeMillis());

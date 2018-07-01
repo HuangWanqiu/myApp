@@ -265,6 +265,8 @@ angular.module('ionicApp', ['ionic'])
    var message =  $scope.person.question;
     $scope.person.answer = "快来跟我聊天吧";
   $scope.submitQuestion = function(){
+       // message= "你好";
+      message =  $scope.person.question;
       $.ajax({
           type: "post",
           url: "/handle_message",
@@ -273,7 +275,7 @@ angular.module('ionicApp', ['ionic'])
           success: function (data) {
               $("#personAnswer").text(data);
               $scope.person.answer =data;
-              console.log("send message success:"+$scope.person.answer);
+              $("#question").val("");
           },
           error: function () {
               console.log("received message failed")
