@@ -30,6 +30,66 @@ public class Message {
         this.currentPath = currentPath;
     }
 
+    public static void parse(String source, String target) throws Exception {
+        float sampleRate = 16000;
+        int sampleSizeInBits = 16;
+        int channels = 1;
+        boolean signed = true;
+        boolean bigEndian = false;
+        AudioFormat af = new AudioFormat(sampleRate, sampleSizeInBits, channels, signed, bigEndian);
+        File sourceFile = new File(source);
+        FileOutputStream out = new FileOutputStream(new File(target));
+        AudioInputStream audioInputStream = new AudioInputStream(new FileInputStream(sourceFile), af, sourceFile.length());
+        AudioSystem.write(audioInputStream, AudioFileFormat.Type.WAVE, out);
+        audioInputStream.close();
+        out.flush();
+        out.close();
+    }
+
+    public void getVoiceOfXiaoxin(String message,String filePath){
+
+
+        SpeechSynthesizer mTts= SpeechSynthesizer.createSynthesizer( );
+
+        mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoxin");//设置发音人
+        mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速，范围0~100
+        mTts.setParameter(SpeechConstant.PITCH, "50");//设置语调，范围0~100
+        mTts.setParameter(SpeechConstant.VOLUME, "50");//设置音量，范围0~100
+
+
+        SynthesizeToUriListener synthesizeToUriListener = new SynthesizeToUriListener() {
+            @Override
+            public void onEvent(int i, int i1, int i2, int i3, Object o, Object o1) {
+
+            }
+
+            //progress为合成进度0~100
+            public void onBufferProgress(int progress) {
+                if(progress==100)
+                    try {
+                        parse(filePath+".pcm", filePath+".wav");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
+                    }
+
+            }
+            //会话合成完成回调接口
+            //uri为合成保存地址，error为错误信息，为null时表示合成会话成功
+            public void onSynthesizeCompleted(String uri, SpeechError error) {
+                System.out.println(uri);
+
+                if(error!=null) {
+                    System.out.println(error.toString());
+                    System.out.println("failed");
+                }
+            }
+        };
+
+        mTts.synthesizeToUri(message, filePath+".pcm",synthesizeToUriListener);
+
+
+    }
+
 
     @Autowired
     MessageService messageService;
@@ -151,7 +211,7 @@ public class Message {
 
 
         try{
-            //get current path
+             //get current path
             File path = new File(ResourceUtils.getURL("classpath:").getPath());
             File upload = new File(path.getAbsolutePath(),"static/upload/audio/"+u.getPhone_number());
 
@@ -159,13 +219,21 @@ public class Message {
             System.out.println("upload url:"+upload.getPath());
             long time=timestamp.getTime();
 
+            /*
             String fileName=upload.getPath()+"/"+String.valueOf(time)+".mp3";
             int index=fileName.indexOf("upload");
             String audioPath=fileName.substring(index);
             setCurrentPath(audioPath);
             System.out.println(audioPath);
-
             (new TtsMain()).run(sendMessage,fileName);
+            */
+            String fileName=upload.getPath()+"/"+String.valueOf(time);
+            getVoiceOfXiaoxin(sendMessage,fileName);
+            int index=fileName.indexOf("upload");
+            String audioPath=fileName.substring(index);
+            setCurrentPath(audioPath+".wav");
+            System.out.println(audioPath+".wav");
+
         }catch (Exception e)
         {
             System.out.println("出错了");

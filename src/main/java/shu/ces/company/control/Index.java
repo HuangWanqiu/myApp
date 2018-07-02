@@ -9,11 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class Index {
 
-    @RequestMapping("/")
+   @RequestMapping("/")
     public String index() {
+        initVoiceSdk();
         return "index";
     }
 
+    public void  initVoiceSdk(){
+
+        SpeechUtility.createUtility( SpeechConstant.APPID +"=5b2f3c48");
+    }
 
 
     @GetMapping("/main")

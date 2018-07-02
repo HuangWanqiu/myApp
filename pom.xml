@@ -67,6 +67,15 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.iflytek</groupId>
+            <artifactId>Msc</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/Msc.jar</systemPath>
+        </dependency>
+
+
 
 
     </dependencies>
@@ -79,6 +88,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>
